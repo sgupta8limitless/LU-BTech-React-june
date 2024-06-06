@@ -1,10 +1,11 @@
 import { useState } from 'react'
-import './CreateProduct.css'
+import styles from './CreateProduct.module.css'
+import { useNavigate,Link } from 'react-router-dom'
 
 function CreateProduct() {
 
     let [product,setProduct] = useState({})
-
+    let navigate = useNavigate()
 
     function handleInput()
     {
@@ -14,6 +15,7 @@ function CreateProduct() {
     function handleSubmit()
     {
         event.preventDefault()
+
         
         fetch("http://localhost:3000/products",{
             method:"POST",
@@ -27,6 +29,7 @@ function CreateProduct() {
         })
         .then((data)=>{
             console.log(data)
+            navigate("/products")
         })
         .catch((err)=>{
             console.log(err)
@@ -37,29 +40,35 @@ function CreateProduct() {
 
   return (
 
-    <section className='container'>
+    <section className={styles.container}>
 
-        <h1 className='container_title'>Add Product</h1>
+        <div className={styles.header}>
+            <h1 className={styles.container_title}>Add Product</h1>
+            <Link to="/products">
+                <i className={'fa-solid fa-table '+styles.viewBtn}></i>
+            </Link>
+          
+        </div>
 
-        <form className='form' onSubmit={handleSubmit}>
+        <form className={styles.form} onSubmit={handleSubmit}>
 
-            <input className='inp' type="text" required placeholder='Enter Name' name='name'
+            <input className={styles.inp} type="text" required placeholder='Enter Name' name='name'
             onChange={handleInput} 
             />
-            <input className='inp' type="text" required placeholder='Enter Price' name='price' 
+            <input className={styles.inp} type="text" required placeholder='Enter Price' name='price' 
             onChange={handleInput}
             />
-            <input className='inp' type="text" required placeholder='Enter Quantity' name='quantity' 
+            <input className={styles.inp} type="text" required placeholder='Enter Quantity' name='quantity' 
+            onChange={handleInput}
+            /> 
+            <input className={styles.inp} type="text" required placeholder='Enter Image URL' name='imageURL' 
             onChange={handleInput}
             />
-            <input className='inp' type="text" required placeholder='Enter Image URL' name='imageURL' 
-            onChange={handleInput}
-            />
-            <input className='inp' type="text" required placeholder='Enter Category' name='category' 
+            <input className={styles.inp} type="text" required placeholder='Enter Category' name='category' 
             onChange={handleInput}
             />
 
-            <button className='btn' type='submit'>Add Product</button>
+            <button className={styles.btn} type='submit'>Add Product</button>
 
           
 

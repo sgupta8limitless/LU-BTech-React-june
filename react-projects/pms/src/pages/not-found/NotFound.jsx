@@ -1,9 +1,9 @@
-import './NotFound.css'
+import styles from './NotFound.module.css'
 
 
 function NotFound() {
   return (
-    <div className='not-found'>
+    <div className={styles.not_found}>
         <h1>404 | Not Found</h1>
         <p>Go Back To Home</p>
     </div>

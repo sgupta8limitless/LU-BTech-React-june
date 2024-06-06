@@ -54,10 +54,11 @@ app.get('/products/:id', getProduct, (req, res) => {
 // Update a product
 app.put('/products/:id', getProduct, async (req, res) => {
     try {
-        const { name, price, imageUrl, category } = req.body;
+        const { name, price, imageURL, category,quantity } = req.body;
         res.product.name = name;
         res.product.price = price;
-        res.product.imageUrl = imageUrl;
+        res.product.imageURL = imageURL;
+        res.product.quantity=quantity
         res.product.category = category;
         await res.product.save();
         res.send(res.product);

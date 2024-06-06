@@ -3,6 +3,7 @@ import './App.css'
 import CreateProduct from './pages/create-product/CreateProduct'
 import Products from './pages/products/Products'
 import NotFound from './pages/not-found/NotFound'
+import UpdateProduct from './pages/update-product/UpdateProduct'
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
                   <Route path='' element={<Products/>}/>
                   <Route path="/products" element={<Products/>}/>
                   <Route path="/create" element={<CreateProduct/>}/>
+                  <Route path='/update/:id' element={<UpdateProduct/>}/>
                   <Route path='*' element={<NotFound/>}/>
               </Routes>
           

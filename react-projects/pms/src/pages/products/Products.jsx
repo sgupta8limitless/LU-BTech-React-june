@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
-import './Products.css'
+import styles from './Products.module.css'
+import {Link} from 'react-router-dom'
 
 function Products() {
 
@@ -60,9 +61,16 @@ function Products() {
 
   return (
 
-    <section className='container'>
+    <section className={styles.container}>
 
-        <h1 className='container_title'>All Products</h1>
+        <div className={styles.header}>
+            <h1 className={styles.container_title}>All Products</h1>
+            <Link to="/create">
+            <i className={'fa-solid fa-circle-plus '+styles.createBtn}></i>
+            </Link>
+          
+        </div>
+       
 
         <table className='table'>
             <thead>
@@ -89,13 +97,15 @@ function Products() {
                                 <td>{product.price}</td>
                                 <td>{product.quantity}</td>
                                 <td>
-                                    <img className='pro_img' src={product.imageURL}/>
+                                    <img className={styles.pro_img} src={product.imageURL}/>
                                 </td>
                                 <td>
-                                    <div className='actions'>
-                                        <i className="fa-solid fa-eye icon-view"></i>
-                                        <i className="fa-solid fa-pen-to-square icon-update"></i>
-                                        <i className="fa-solid fa-trash icon-delete" onClick={()=>{
+                                    <div className={styles.actions}>
+                                        <i className={"fa-solid fa-eye "+styles.icon_view}></i>
+                                        <Link to={"/update/"+product._id}>
+                                            <i className={"fa-solid fa-pen-to-square "+styles.icon_update}></i>
+                                        </Link>
+                                        <i className={"fa-solid fa-trash "+styles.icon_delete} onClick={()=>{
                                             deleteProduct(product._id)
                                         }}></i>
                                     </div> 
