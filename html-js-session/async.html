@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+       
+       
+        // function getUsers(callback,errclback)
+        // {
+        //     let url = "http://www.blabla.com/users"
+        //     let users = callapi(url)
+
+        //     if(users!==null)
+        //     {
+        //         callback(users)
+        //     }else 
+        //     {
+        //         errclback("some problem")
+        //     }
+            
+
+            
+
+        // }
+
+        
+        // function getPosts(user,callback)
+        // {
+        //     let url = "http://www.blabla.com/posts/"+user
+        //     let posts = callapi(url)
+
+        //     callback(posts)
+        // }
+
+        // setTimeout(()=>{
+
+        //     getUsers((users)=>{
+        //         getPosts(users[0],(posts)=>{
+
+        //         })
+        //     })
+
+        // },0)
+
+       
+          
+
+        // Promises 
+
+
+        // let p = new Promise((resolve,reject)=>{
+
+        //     let i = 2
+        //     if(i===1)
+        //     {
+        //         resolve("all good")
+        //     }
+        //     else 
+        //     {
+        //         reject("you always do this")
+        //     }
+
+        // })
+
+        // console.log("line 1")
+
+        // setTimeout(()=>{
+        //     console.log("set time out")
+        // },0)
+
+        // p
+        // .then((msg)=>{
+        //     console.log(msg)
+        // })
+        // .catch((error)=>{
+        //     console.log(error)
+        // })
+
+        // console.log("line 2")
+
+
+        // function getUsers()
+        // {
+        //     return new Promise((resolve,reject)=>{
+        //         // callapi("http://www.manmeet.com/users")
+        //         let users = [{id:1,username:"Sahil"},{id:2,username:"Aaryan"}] 
+        //         if(users!==null)
+        //         {
+        //             resolve(users)
+        //         }
+        //         else 
+        //         {
+        //             reject(new Error("Unable to fetch users"))
+        //         }
+        //     })
+
+        // }
+
+        // function getPosts()
+        // {
+        //     return new Promise((resolve,reject)=>{
+        //         // callapi("http://www.manmeet.com/users"+user.name )
+        //         let posts = [] 
+        //         if(posts!==null)
+        //         {
+        //             resolve(posts)
+        //         }
+        //         else 
+        //         {
+        //             reject(new Error("unable to fetch posts"))
+        //         }
+        //     })
+
+        // }
+
+
+        // getUsers()
+        // .then((users)=>{
+        //     console.log(users)
+        //     return getPosts() 
+        // })
+        // .then((posts)=>{
+        //     console.log(posts)
+        // })
+        // .catch((error)=>{
+        //     console.log(error)
+        // })
+
+
+
+        fetch("https://jsonplaceholder.typicode.com/users",{
+            method:"GET"
+        })
+        .then((response)=>{
+            return response.json()
+        })
+        .then((data)=>{
+                console.log(data)
+            })
+        .catch((err)=>{
+            console.log(err)
+        })
+
+        
+
+
+
+
+
+
+
+
+
+        
+
+       
+
+      
+
+
+
+
+    </script>
+
+</body>
+</html>
