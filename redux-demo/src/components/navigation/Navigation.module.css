@@ -1,0 +1,28 @@
+.header
+{
+    width: 100%;
+    padding: 20px 5%;
+    background-color: lightgray;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo 
+{
+    background-color: yellow;
+}
+
+.nav
+{
+    width: 20%;
+    height: 30px;
+    /* background-color: blue; */
+}
+
+.navLinks
+{
+    width: 100%;
+    display: flex;
+    list-style-type: none;
+    justify-content: space-between;
+}
